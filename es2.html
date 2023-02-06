@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Verifica2</title>
+
+    <style>
+        .input
+        {
+            width: 300px;
+        }
+        #txtContenitore
+        {
+        	margin:10px;
+        }
+        #titolo
+        {
+        	margin:10px;
+            padding:5px;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+        <div>
+            <h4 id="titolo">Simulazione</h4>
+            <hr>
+        </div>
+        <div id="txtContenitore">
+            <div>
+                <b>Autista</b>
+                <br>
+                <input type="text" placeholder="Soggetto protagonista" class="input" id="Autista">
+            </div>
+            <div>
+                <b>Destinazione</b>
+                <br>
+                <input type="text" placeholder="Obiettivo da raggiungere" class="input" id="Destinazione">
+            </div>
+            <div>
+                <b>Carburante</b>
+                <br>
+                <input type="text" placeholder="Motivazione che spinge verso l'obiettivo" class="input" id="Carburante">
+            </div>
+            <div>
+                <b>Luogo</b>
+                <br>
+                <input type="text" placeholder="Contesto in cui si svolge l'azione" class="input" id="Luogo">
+            </div>
+            <div>
+                <b>Strada</b>
+                <br>
+                <input type="text" placeholder="Comportamento" class="input" id="Strada">
+            </div>
+            <div>
+                <b>Strada OK</b>
+                <br>
+                <input type="text" placeholder="COMPORTAMENTO ADEGUATO" class="input" id="StradaOK">
+            </div>
+            <div>
+                <b>Strada KO</b>
+                <br>
+                <input type="text" placeholder="COMPORTAMENTO INADEGUATO" class="input" id="StradaKO">
+            </div>
+            <div>
+                <b>Cespugli</b>
+                <br>
+                <input type="text" placeholder="FEEDBACK" class="input" id="Cespugli">
+            </div>
+            <div>
+                <b>Lupo</b>
+                <br>
+                <input type="text" placeholder="CONSEGUENZE NEGATIVE" class="input" id="Lupo">
+            </div>
+            <div>
+                <b>Cestino</b>
+                <br>
+                <input type="text" placeholder="ATTACCAMENTI da lasciare andare" class="input" id="Cestino">
+            </div>
+            <div>
+                <b>Distanza</b>
+                <br>
+                <input type="number" placeholder="Num. da 1 a 5" class="input" id="Distanza"value="3">
+            </div>
+            <div>
+                <center>
+                	<div id="spazioImg">
+                        <img src="https://grassiluca.altervista.org/Verifica4CI/Verifica6223/Intro.gif">
+                    </div>
+                    <br>
+                    <p>
+                        <input type="button" value="INIZIO" name="BInizia" class="btn-primary" onclick="inizio()">
+                    </p>
+                    <p>
+                        <input type="button" value="  " id="BSx" onclick="bottoneSx()" class="btn">
+                        <input type="button" value="  " id="BDx" onclick="bottoneDx()" class="btn">
+                    </p>
+                    <!--Definisce i due bottoni del form -->
+                </center>
+            </div>
+            <p></p>
+            <!--<input type="button" value="clicca" onClick="<%'call ciao1()%>">-->
+            <div>
+                <label>
+                    <b>Narr@azione</b>
+                </label>
+                <div>
+                    <textarea id="myTextarea" rows="15" style = "width: 100%">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var autista, destinazione, carburante, luogo, strada, strada_OK, strada_KO, cespugli, lupo, Distanza, cestino, Motivato;
+
+        function popup(pagina){
+            window.open(pagina, '', 'width=560, height=390, left=500, top=100, resizable=yes, toolbar=no, scrollbar=no, status=no');
+        }
+
+        function immagine(gif){
+            document.getElementById("spazioImg").innerHTML = `<img src="${gif}">`;
+        }
+
+        function inizio(){
+            autista = document.getElementById("Autista").value;
+            if(autista == "")  autista = "SOGGETTO";
+            destinazione = document.getElementById("Destinazione").value;
+            if(destinazione == "")  destinazione = "OBIETTIVO";
+            carburante = document.getElementById("Carburante").value;
+            if(carburante == "")  carburante = "MOTIVAZIONE";
+            luogo = document.getElementById("Luogo").value;
+            if(luogo == "")  luogo = "CONTESTO";
+            strada = document.getElementById("Strada").value;
+            if(strada == "")  strada = "COMPORTAMENTO";
+            strada_OK = document.getElementById("StradaOK").value;
+            if(strada_OK == "")  strada_OK = "COMPORTAMENTO ADEGUATO";
+            strada_KO = document.getElementById("StradaKO").value;
+            if(strada_KO == "")  strada_KO = "COMPORTAMENTO INADEGUATO";
+            cespugli = document.getElementById("Cespugli").value;
+            if(cespugli == "")  cespugli = "FEEDBACK";
+            lupo = document.getElementById("Lupo").value;
+            if(lupo == "")  lupo = "CONSEGUENZE";
+            cestino = document.getElementById("Cestino").value;
+            if(cestino == "")  cestino = "ATTACCAMENTI";
+            Distanza = document.getElementById("Distanza").value;
+
+            document.getElementById("myTextarea").value = "Distanza Iniziale dall'obiettivo = ("+ Distanza +")" + "\n" + autista +" vuoi raggiungere "+destinazione+"? ";
+            document.getElementById("myTextarea").scrollTop=document.getElementById("myTextarea").scrollHeight;
+
+            document.getElementById("BDx").value = "SI";
+            document.getElementById("BSx").value = "NO";
+            motivato = 0;
+            immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/Intro.gif");
+        }
+
+        function bottoneSx(){
+            if(motivato == 0)
+            {
+                document.getElementById("myTextarea").value += "NO!"+"\n \n" + "Mancando "+carburante+" per raggiungere "+destinazione+" , "+autista +" nel contesto "+luogo+" non raggiungerai l'obiettivo !";
+                document.getElementById("myTextarea").value += "\n" + autista +" vuoi raggiungere "+destinazione+"?";
+                document.getElementById("myTextarea").scrollTop=document.getElementById("myTextarea").scrollHeight;
+                immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/manifestare1.jpg");
+            }
+            else if(motivato == 1 && Distanza <=9)
+            {
+                Distanza++;
+                document.getElementById("myTextarea").value += "\n\nATTENZIONE  "+autista +"  la scelta  "+strada_KO+" ti allontana da "+destinazione;
+                document.getElementById("myTextarea").value += "\n"+cespugli+" ti segnalano il pericolo ! ";
+                document.getElementById("myTextarea").value += "\nDistanza attuale dall'obiettivo = ("+Distanza+")";
+                document.getElementById("myTextarea").scrollTop=document.getElementById("myTextarea").scrollHeight;
+                document.getElementById("myTextarea").value +=  "\n" + autista +" quale 'COMPORTAMENTO scegli? ";
+                immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/no_sostegno.gif");
+            }
+            else if(motivato == 1 && Distanza >= 10)
+            {
+                document.getElementById("BDx").value = "lascia andare il " + cestino;
+                document.getElementById("BSx").value = "trattieni il " + cestino;
+                immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/lupo1.gif");
+                popup("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/Topolino_Tontolino.jpg");
+            }
+
+        }
+
+        function bottoneDx(){
+            if(motivato == 0)
+            {
+                document.getElementById("myTextarea").value += "SI!"+"\n \n" + autista +" quale COMPORTAMENTO scegli? ";
+                document.getElementById("myTextarea").scrollTop=document.getElementById("myTextarea").scrollHeight;
+                document.getElementById("BDx").value = strada_OK;
+                document.getElementById("BSx").value = strada_KO;
+                motivato=1;
+                immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/explorer.jpg");
+            }
+            else if(motivato == 1 && Distanza >=1)
+            {
+                Distanza--;
+                document.getElementById("myTextarea").value += "\n\n"+autista +"  la scelta  "+strada_OK+" ti avvicina a  "+destinazione+"  continua cosi !";
+                document.getElementById("myTextarea").value += "\nDistanza attuale dall'obiettivo = ("+Distanza+")";
+                if(Distanza == 0) document.getElementById("myTextarea").value += "\nCoraggio ci sei quasi fai l'ultimo passo !"
+                document.getElementById("myTextarea").value +=  "\n" + autista +" quale 'COMPORTAMENTO scegli? ";
+                document.getElementById("myTextarea").scrollTop=document.getElementById("myTextarea").scrollHeight;
+                if(Distanza >= 9) 
+                {
+                    document.getElementById("BDx").value = strada_OK;
+                    document.getElementById("BSx").value = strada_KO;
+                    immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/cestino.gif");
+                }
+                else immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/sostegno1.gif");
+            }
+            else if(motivato == 1 && Distanza <= 0)
+            {  
+                immagine("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/coerenza.gif");
+                popup("https://grassiluca.altervista.org/Verifica4CI/Verifica6223/Topolino_Volpino.jpg");
+            }
+
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
