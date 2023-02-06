@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Verifica</title>
+  </head>
+  <body>
+
+    <div>
+        <P id="pOut">
+            SOGGETTO OPPRESSO vuoi reagire ad oppressione esercitata da SOGGETTO OPPRESSORE<br>
+            Mancando MOTIVAZIONE per reagire a SOGGETTO OPPRESSORE. SOGGETTO OPPRESSO nel contesto SITUAZIONE rimarrai oppresso!<br>
+            SOGGETTO OPPRESSO vuoi reagire ad oppressione esercitata da SOGGETTO OPPRESSORE? Si!<br>
+            SOGGETTO OPPRESSO quale reazione scegli?<br>
+            ATTENZIONE SOGGETTO OPPRESSO la scelta COMPORTAMENTO INADEGUATO ti allontana dal riuscire a mandare un FEEDBACK efficace a  SOGGETTO OPPRESSORE<br>
+            SOGGETTO OPPRESSO ti se allontanato troppo hai scelto la strada chiusa COMPORTAMENTO INADEGUATO e ti ei scontrato con CONSEGUENZE NEGATIVE<br>
+            SOGGETTO OPPRESSO quale reazione scegli?<br>
+            SOGGETTO OPPRESSO la scelta COMPORTAMENTO ADEGUATO ti avvicina dal riuscire a mandare un FEEDBACK efficace a  SOGGETTO OPPRESSORE continua cosi!<br>
+            coraggio ci sei quasi fai l'ultimo passo<br>
+        </P>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="Oppresso">Oppresso</label>
+            <input type="text" class="form-control" id="Oppresso" oninput="input()" placeholder="SOGGETTO Oppresso">
+        </div>
+        <div class="form-group">
+            <label for="Oppressore">Oppressore</label>
+            <input type="text" class="form-control" id="Oppressore" oninput="input()" placeholder="SOGGETTO Oppressore">
+        </div>
+        <div class="form-group">
+            <label for="Situazione">Situazione</label>
+            <input type="text" class="form-control" id="Situazione" oninput="input()" placeholder="SITUAZIONE in cui si svolge l'azione">
+        </div>
+        <div class="form-group">
+            <label for="Motivazione">Motivazione</label>
+            <input type="text" class="form-control" id="Motivazione" oninput="input()" placeholder="MOTIVAZIONE per reagire ad oppressore">
+        </div>
+        <div class="form-group">
+            <label for="Feedback">Feedback</label>
+            <input type="text" class="form-control" id="Feedback" oninput="input()" placeholder="Feedback da inviare ad oppressore">
+        </div>
+        <div class="form-group">
+            <label for="Strada OK">Strada OK</label>
+            <input type="text" class="form-control" id="Strada OK" oninput="input()" placeholder="COMPORTAMENTO ADEGUATO per reagire ad oppressione">
+        </div>
+        <div class="form-group">
+            <label for="Strada KO">Strada KO</label>
+            <input type="text" class="form-control" id="Strada KO" oninput="input()" placeholder="COMPORTAMENTO INADEGUATO per reagire ad oppressoione">
+        </div>
+        <div class="form-group">
+            <label for="ConNeg">Consequenze Negative</label>
+            <input type="text" class="form-control" id="ConNeg" oninput="input()" placeholder="CONSEGUENZE NEGATIVE del comportamento inadeguato">
+        </div>
+    </form>
+
+    <script>
+        function input() {
+            let oppresso = document.getElementById("Oppresso").value;
+            if(oppresso == "")  oppresso = "soggetto oppresso";
+            let oppressore = document.getElementById("Oppressore").value;
+            if(oppressore == "")  oppressore = "soggetto oppressore";
+            let situazione = document.getElementById("Situazione").value;
+            if(situazione == "")  situazione = "situazione";
+            let motivazione = document.getElementById("Motivazione").value;
+            if(motivazione == "")  motivazione = "motivazione";
+            let feedback = document.getElementById("Feedback").value;
+            if(feedback == "")  feedback = "feedback";
+            let straO = document.getElementById("Strada OK").value;
+            if(straO == "")  straO = "COMPORTAMENTO ADEGUATO";
+            let straK = document.getElementById("Strada KO").value;
+            if(straK == "")  straK = "COMPORTAMENTO INADEGUATO";
+            let conseguenze = document.getElementById("ConNeg").value;
+            if(conseguenze == "")  conseguenze = "conseguenze";
+            
+            let out = "";
+
+            out = `<p> ${oppresso} vuoi reagire ad oppressione esercitata da ${oppressore}<br>
+            Mancando ${motivazione} per reagire a ${oppressore}. ${oppresso} nel contesto ${situazione} rimarrai oppresso!<br>
+            ${oppresso} vuoi reagire ad oppressione esercitata da ${oppressore}? Si!<br>
+            ${oppresso} quale reazione scegli?<br>
+            ATTENZIONE ${oppresso} la scelta ${straK} ti allontana dal riuscire a mandare un ${feedback} efficace a  ${oppresso}RE<br>
+            ${oppresso} ti se allontanato troppo hai scelto la strada chiusa ${straK} e ti ei scontrato con ${conseguenze}<br>
+            ${oppresso} quale reazione scegli?<br>
+            ${oppresso} la scelta ${straO} ti avvicina dal riuscire a mandare un ${feedback} efficace a  ${oppressore} continua cosi!<br>
+            coraggio ci sei quasi fai l'ultimo passo<br>`;
+
+            console.log(out);
+            
+            document.getElementById("pOut").innerHTML = out;
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
